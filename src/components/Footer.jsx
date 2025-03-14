@@ -1,5 +1,5 @@
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaWhatsapp } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 import icon from "../assets/icon.svg";
 
 export default function Footer() {
@@ -18,21 +18,21 @@ export default function Footer() {
                         quis viverra velit bibendum vel. Phasellus id leo et vestibulum.
                     </p>
                     <div className="flex space-x-4 mt-5">
-                        <a href="#" className="text-white hover:text-[#729855] transition">
+                        <Link to="#" className="text-white hover:text-[#729855] transition">
                             <FaFacebookF size={20} />
-                        </a>
-                        <a href="#" className="text-white hover:text-[#729855] transition">
+                        </Link>
+                        <Link to="#" className="text-white hover:text-[#729855] transition">
                             <FaTwitter size={20} />
-                        </a>
-                        <a href="#" className="text-white hover:text-[#729855] transition">
+                        </Link>
+                        <Link to="#" className="text-white hover:text-[#729855] transition">
                             <FaInstagram size={20} />
-                        </a>
-                        <a href="#" className="text-white hover:text-[#729855] transition">
+                        </Link>
+                        <Link to="#" className="text-white hover:text-[#729855] transition">
                             <FaLinkedinIn size={20} />
-                        </a>
-                        <a href="#" className="text-white hover:text-[#729855] transition">
+                        </Link>
+                        <Link to="#" className="text-white hover:text-[#729855] transition">
                             <FaWhatsapp size={20} />
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -40,10 +40,10 @@ export default function Footer() {
                 <div>
                     <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
                     <ul className="space-y-2">
-                        <li><a href="/home" className="text-white hover:text-[#729855] transition">Home</a></li>
-                        <li><a href="/products"className="text-white hover:text-[#729855] transition">Products</a></li>
-                        <li><a href="/about" className="text-white hover:text-[#729855] transition">About Us</a></li>
-                        <li><a href="contact" className="text-white hover:text-[#729855] transition">Contact</a></li>
+                        <li><Link to="/home" className="text-white hover:text-[#729855] transition">Home</Link></li>
+                        <li><Link to="/products"className="text-white hover:text-[#729855] transition">Products</Link></li>
+                        <li><Link to="/about" className="text-white hover:text-[#729855] transition">About Us</Link></li>
+                        <li><Link to="contact" className="text-white hover:text-[#729855] transition">Contact</Link></li>
                     </ul>
                 </div>
 
@@ -51,10 +51,10 @@ export default function Footer() {
                 <div>
                     <h3 className="text-lg font-semibold mb-3">Customer Support</h3>
                     <ul className="space-y-2">
-                        <li><a href="#" className="text-white hover:text-[#729855] transition">Shipping Info</a></li>
-                        <li><a href="#" className="text-white hover:text-[#729855] transition">Returns & Refunds</a></li>
-                        <li><a href="#" className="text-white hover:text-[#729855] transition">Privacy Policy</a></li>
-                        <li><a href="#" className="text-white hover:text-[#729855] transition">Terms & Conditions</a></li>
+                        <li><Link to="#" className="text-white hover:text-[#729855] transition">Shipping Info</Link></li>
+                        <li><Link to="#" className="text-white hover:text-[#729855] transition">Returns & Refunds</Link></li>
+                        <li><Link to="#" className="text-white hover:text-[#729855] transition">Privacy Policy</Link></li>
+                        <li><Link to="#" className="text-white hover:text-[#729855] transition">Terms & Conditions</Link></li>
                     </ul>
                 </div>
 
@@ -65,11 +65,11 @@ export default function Footer() {
                     <ul className="space-y-3">
                         <li className="flex items-center gap-2">
                             <FaEnvelope size={18} className="text-[#729855]" />
-                            <a href="mailto:support@auraskincare.com" className="text-white hover:text-[#729855] transition">support@auraskincare.com</a>
+                            <Link to="mailto:support@auraskincare.com" className="text-white hover:text-[#729855] transition">support@auraskincare.com</Link>
                         </li>
                         <li className="flex items-center gap-2">
                             <FaPhoneAlt size={18} className="text-[#729855]" />
-                            <a href="tel:+442079460123" className="text-white hover:text-[#729855] transition">+44 20 7946 0123</a>
+                            <Link to="tel:+442079460123" className="text-white hover:text-[#729855] transition">+44 20 7946 0123</Link>
                         </li>
                         <li className="flex items-center gap-2">
                             <FaMapMarkerAlt size={18} className="text-[#729855]" />

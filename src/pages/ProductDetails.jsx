@@ -16,7 +16,7 @@ export default function ProductDetails() {
     });
 
     useEffect(() => {
-        axios.get(`http://localhost:5000/products/${id}`)
+        axios.get(`${import.meta.env.VITE_API_URL}/products/${id}`)
             .then((response) => setProduct(response.data))
             .catch((error) => console.error("Error fetching product details:", error));
     }, [id]);

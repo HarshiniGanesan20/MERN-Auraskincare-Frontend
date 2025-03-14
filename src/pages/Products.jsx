@@ -41,8 +41,6 @@ export default function ProductsList() {
     };
 
 
-
-
     if (sortOption === "ascendName") {
         filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
     } else if (sortOption === "descendName") {

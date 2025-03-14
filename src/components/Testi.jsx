@@ -11,7 +11,7 @@ export default function Testi() {
     
         const fetchTestimonials = async () => {
             try {
-                const response = await fetch("http://localhost:5000/reviews");
+                const response = await fetch(`${import.meta.env.VITE_API_URL}/reviews`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
                 }

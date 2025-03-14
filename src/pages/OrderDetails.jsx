@@ -24,7 +24,7 @@ const OrderDetails = () => {
 
             try {
                 const userEmail = user.email;
-                const res = await fetch(`http://localhost:5000/get-orders?email=${userEmail}`);
+                const res = await fetch(`${import.meta.env.VITE_API_URL}/get-orders?email=${userEmail}`);
                 if (!res.ok) throw new Error("Failed to fetch order history");
 
                 const data = await res.json();

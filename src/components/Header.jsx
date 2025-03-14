@@ -27,7 +27,7 @@ export default function Header() {
             if (currentUser) {
                 try {
 
-                    const response = await axios.get(`http://localhost:5000/user?email=${currentUser.email}`);
+                    const response = await axios.get(`${import.meta.env.VITE_API_URL}/user?email=${currentUser.email}`);
                     setUser(response.data);
                 } catch (error) {
                     console.error("Error fetching user data:", error);
@@ -113,12 +113,12 @@ export default function Header() {
                                     {user?.isadmin ? (
 
                                         <li className="py-2 hover:text-[#729855]">
-                                            <a href="/add-product">Add Product</a>
+                                            <Link to="/add-product">Add Product</Link>
                                         </li>
                                     ) : (
 
                                         <li className="py-2 hover:text-[#729855]">
-                                            <a href="/order-details">Order History</a>
+                                            <Link to="/order-details">Order History</Link>
                                         </li>
                                     )}
                                 </ul>
@@ -138,9 +138,9 @@ export default function Header() {
 
 
                 <div className='flex items-center gap-3'>
-                    <a href='/cart' className='text-gray-900 text-[18px] hover:text-[#729855]'>
+                    <Link to='/cart' className='text-gray-900 text-[18px] hover:text-[#729855]'>
                         <img src={cart} className="w-7 md:w-8"></img>
-                    </a>
+                    </Link>
 
                     <div className="relative" ref={dropdownRef}>
                         <div
@@ -162,19 +162,19 @@ export default function Header() {
                                 {user?.isadmin ? (
 
                                     <li className="hidden px-3 py-2 md:flex">
-                                        <a href="/add-product">
+                                        <Link to="/add-product">
                                             <div className="flex items-center gap-2 hover:bg-black bg-[#2d3a15] transform duration-500 ease-in-out cursor-pointer px-5 py-2 hover:text-white font-semibold text-[16px] group">
                                                 <button className="bg-transparent text-white group-hover:text-white font-semibold text-[16px] cursor-pointer">
                                                     Add Product
                                                 </button>
                                             </div>
-                                        </a>
+                                        </Link>
                                     </li>
                                 ) : (
 
-                                    <a href="/order-details" className="w-full text-left text-base px-4 py-2 hover:text-[#729855] cursor-pointer">
+                                    <Link to="/order-details" className="w-full text-left text-base px-4 py-2 hover:text-[#729855] cursor-pointer">
                                         Order History
-                                    </a>
+                                    </Link>
                                 )}
                             </div>
                         )}

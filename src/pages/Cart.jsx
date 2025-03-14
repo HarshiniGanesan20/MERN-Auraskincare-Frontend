@@ -61,7 +61,7 @@ export default function Cart() {
     
             const userEmail = user.email; 
     
-            const userRes = await fetch(`http://localhost:5000/user?email=${userEmail}`);
+            const userRes = await fetch(`${import.meta.env.VITE_API_URL}/user?email=${userEmail}`);
             if (!userRes.ok) throw new Error("Failed to fetch user details");
     
             const userData = await userRes.json();
@@ -72,7 +72,7 @@ export default function Cart() {
             }
     
          
-            const response = await fetch("http://localhost:5000/create-order", {
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/create-order`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -102,7 +102,7 @@ export default function Cart() {
                     try {
                         console.log("Payment Response:", response);
     
-                        const verifyRes = await fetch("http://localhost:5000/verify-payment", {
+                        const verifyRes = await fetch(`${import.meta.env.VITE_API_URL}/verify-payment`, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(response)
@@ -114,7 +114,7 @@ export default function Cart() {
                         if (verifyData.success) {
                             alert("Payment Successful!");
     
-                            await fetch("http://localhost:5000/store-order", {
+                            await fetch(`${import.meta.env.VITE_API_URL}/store-order`, {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
                                 body: JSON.stringify({

@@ -33,7 +33,7 @@ export default function Signup() {
             await createUserWithEmailAndPassword(auth, formData.email, formData.password);
     
             // Save user in MongoDB
-            const response = await axios.post("http://localhost:5000/signup", {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
                 username: formData.username,
                 email: formData.email,
                 password: formData.password, 
@@ -67,7 +67,7 @@ export default function Signup() {
             console.log("Google Sign-In Success:", user);
     
             // Save Google user to MongoDB
-            const response = await axios.post("http://localhost:5000/signup", {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/signup`, {
                 username: user.displayName,
                 email: user.email,
                 password: "",
