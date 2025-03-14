@@ -75,24 +75,24 @@ const OrderDetails = () => {
                                 <tr className="border-b border-gray-300">
                                     <th className="py-3 px-4 font-medium text-lg">Order ID</th>
                                     <th className="py-3 px-4 font-medium text-lg">Products</th>
-                                    <th className="py-3 px-4 font-medium text-lg text-center">Total Amount</th>
-                                    <th className="py-3 px-4 font-medium text-lg text-center">Payment Status</th>
-                                    <th className="py-3 px-4 font-medium text-lg text-right">Order Date</th>
+                                    <th className="py-3 px-4 font-medium text-lg text-center">Amount</th>
+                                    <th className="py-3 px-4 font-medium text-lg text-center">Status</th>
+                                    <th className="py-3 px-4 font-medium text-lg text-right">Date</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {orders.map((order) => (
                                     <tr key={order._id} className="border-b border-gray-300">
-                                        <td className="py-4 px-4 text-gray-700">{order.orderId}</td>
-                                        <td className="py-4 px-4">
+                                        <td className="py-4 px-4 text-gray-700 w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">{order.orderId}</td>
+                                        <td className="py-4 px-4 w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
                                             {order.items.map((item, index) => (
                                                 <div key={index} className="text-gray-600">
                                                     {item.name} ({item.quantity}x)
                                                 </div>
                                             ))}
                                         </td>
-                                        <td className="py-4 px-4 text-center text-gray-700 font-medium">₹{order.totalAmount}</td>
-                                        <td className="py-4 px-4 text-center">
+                                        <td className="py-4 px-4 text-center text-gray-700 font-medium w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">₹{order.totalAmount}</td>
+                                        <td className="py-4 px-4 text-center w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
                                             <span
                                                 className={`px-3 py-1 rounded-full text-sm ${order.paymentStatus === "Paid"
                                                     ? "bg-green-200 text-green-700"
@@ -102,7 +102,7 @@ const OrderDetails = () => {
                                                 {order.paymentStatus || "Pending"}
                                             </span>
                                         </td>
-                                        <td className="py-4 px-4 text-right text-gray-600">
+                                        <td className="py-4 px-4 text-right text-gray-600 w-[100px] whitespace-nowrap overflow-hidden text-ellipsis">
                                             {new Date(order.orderDate).toLocaleDateString()}
                                         </td>
                                     </tr>
