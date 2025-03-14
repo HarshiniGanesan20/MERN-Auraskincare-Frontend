@@ -10,7 +10,7 @@ export default function ProductsList() {
     const [sortOption, setSortOption] = useState("default");
 
     useEffect(() => {
-        axios.get("https://mern-auraskincare-backend-production.up.railway.app//products")
+        axios.get("https://mern-auraskincare-backend-production.up.railway.app/products")
             .then((response) => setProducts(response.data))
             .catch((error) => console.error("Error fetching products:", error));
     }, []);
