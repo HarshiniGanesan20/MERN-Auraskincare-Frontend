@@ -93,102 +93,102 @@ export default function Header() {
 
                     <ul className='flex  h-screen md:h-auto flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6'>
                         <li className='md:hidden text-[#536e1c] text-base font-medium hover:text-[#729855]'> {user ? `Welcome,${user.username}` : "Welcome,Guest"}</li>
-                        <li><Link to='/home' className='text-gray-900 text-base font-medium hover:text-[#729855]'>Home</Link></li>
-                        <li><Link to='/products' className='text-gray-900 text-base font-medium hover:text-[#729855]'>SkinCare</Link></li>
-                        <li><Link to='/about' className='text-gray-900 text-base font-medium hover:text-[#729855]'>About</Link></li>
-                        <li><Link to='/contact' className='text-gray-900 text-base font-medium hover:text-[#729855]'>Contact</Link></li>
+                        <li><Link to='/home' className='text-gray-900 text-base font-medium hover:text-[#729855]' onClick={() => setIsOpen(false)}>Home</Link></li>
+                        <li><Link to='/products' className='text-gray-900 text-base font-medium hover:text-[#729855]' onClick={() => setIsOpen(false)} >SkinCare</Link></li>
+                    <li><Link to='/about' className='text-gray-900 text-base font-medium hover:text-[#729855]' onClick={() => setIsOpen(false)} >About</Link></li>
+                    <li><Link to='/contact' className='text-gray-900 text-base font-medium hover:text-[#729855]' onClick={() => setIsOpen(false)} >Contact</Link></li>
 
-                        <li className="md:hidden hover:text-[#729855]">
-                            <div
-                                className="flex items-center justify-between  cursor-pointer text-gray-900 hover:bg-gray-200"
-                                onClick={() => setIsMobileProfileOpen(!isMobileProfileOpen)}
-                            >
-                                My Profile
-                                <ChevronDown size={18} className={`transition-transform duration-300 ${isMobileProfileOpen ? "rotate-180" : ""}`} />
-                            </div>
-
-
-                            {isMobileProfileOpen && (
-                                <ul className="p-2 ">
-                                    {user?.isadmin ? (
-
-                                        <li className="py-2 hover:text-[#729855]">
-                                            <Link to="/add-product">Add Product</Link>
-                                        </li>
-                                    ) : (
-
-                                        <li className="py-2 hover:text-[#729855]">
-                                            <Link to="/order-details">Order History</Link>
-                                        </li>
-                                    )}
-                                </ul>
-                            )}
-                        </li>
-
-                        <li>
-                            <div onClick={handleLogout} className=" flex md:hidden items-center  hover:bg-black bg-[#2d3a15] transform duration-500 ease-in-out cursor-pointer px-5 py-2 hover:text-white font-semibold text-[16px] group">
-                                <button className="bg-transparent text-white group-hover:text-white font-semibold text-[16px] cursor-pointer">
-                                    Logout
-                                </button>
-                            </div>
-                        </li>
-
-                    </ul>
-                </div>
-
-
-                <div className='flex items-center gap-3'>
-                    <Link to='/cart' className='text-gray-900 text-[18px] hover:text-[#729855]'>
-                        <img src={cart} className="w-7 md:w-8"></img>
-                    </Link>
-
-                    <div className="relative" ref={dropdownRef}>
+                    <li className="md:hidden hover:text-[#729855]">
                         <div
-                            className="hidden md:flex items-center gap-0.5 cursor-pointer"
-                            onClick={() => setIsProfileOpen(!isProfileOpen)}
+                            className="flex items-center justify-between  cursor-pointer text-gray-900 hover:bg-gray-200"
+                            onClick={() => setIsMobileProfileOpen(!isMobileProfileOpen)}
                         >
-                            <img src={userIcon} className="w-5 md:w-8" alt="User" />
-                            <ChevronDown size={18} className={`text-gray-600 transition-transform duration-300 ${isProfileOpen ? "rotate-180" : ""}`} />
+                            My Profile
+                            <ChevronDown size={18} className={`transition-transform duration-300 ${isMobileProfileOpen ? "rotate-180" : ""}`} />
                         </div>
 
-                        {/* Dropdown Menu */}
-                        {isProfileOpen && (
-                            <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg py-2 z-50">
-                                <p className="px-4 py-2 text-[#536e1c] font-medium">
-                                    {user ? `Welcome, ${user.username}` : "Welcome, Guest"}
-                                </p>
-                                <hr className="border-gray-300 mb-2" />
 
+                        {isMobileProfileOpen && (
+                            <ul className="p-2 ">
                                 {user?.isadmin ? (
 
-                                    <li className="hidden px-3 py-2 md:flex">
-                                        <Link to="/add-product">
-                                            <div className="flex items-center gap-2 hover:bg-black bg-[#2d3a15] transform duration-500 ease-in-out cursor-pointer px-5 py-2 hover:text-white font-semibold text-[16px] group">
-                                                <button className="bg-transparent text-white group-hover:text-white font-semibold text-[16px] cursor-pointer">
-                                                    Add Product
-                                                </button>
-                                            </div>
-                                        </Link>
+                                    <li className="py-2 hover:text-[#729855]">
+                                        <Link to="/add-product" onClick={() => setIsOpen(false)}>Add Product</Link>
                                     </li>
                                 ) : (
 
-                                    <Link to="/order-details" className="w-full text-left text-base px-4 py-2 hover:text-[#729855] cursor-pointer">
-                                        Order History
-                                    </Link>
+                                    <li className="py-2 hover:text-[#729855]">
+                                        <Link to="/order-details" onClick={() => setIsOpen(false)}>Order History</Link>
+                                    </li>
                                 )}
-                            </div>
+                            </ul>
                         )}
+                    </li>
+
+                    <li>
+                        <div onClick={handleLogout} className=" flex md:hidden items-center  hover:bg-black bg-[#2d3a15] transform duration-500 ease-in-out cursor-pointer px-5 py-2 hover:text-white font-semibold text-[16px] group">
+                            <button className="bg-transparent text-white group-hover:text-white font-semibold text-[16px] cursor-pointer">
+                                Logout
+                            </button>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div className='flex items-center gap-3'>
+                <Link to='/cart' className='text-gray-900 text-[18px] hover:text-[#729855]'>
+                    <img src={cart} className="w-7 md:w-8"></img>
+                </Link>
+
+                <div className="relative" ref={dropdownRef}>
+                    <div
+                        className="hidden md:flex items-center gap-0.5 cursor-pointer"
+                        onClick={() => setIsProfileOpen(!isProfileOpen)}
+                    >
+                        <img src={userIcon} className="w-5 md:w-8" alt="User" />
+                        <ChevronDown size={18} className={`text-gray-600 transition-transform duration-300 ${isProfileOpen ? "rotate-180" : ""}`} />
                     </div>
 
+                    {/* Dropdown Menu */}
+                    {isProfileOpen && (
+                        <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg py-2 z-50">
+                            <p className="px-4 py-2 text-[#536e1c] font-medium">
+                                {user ? `Welcome, ${user.username}` : "Welcome, Guest"}
+                            </p>
+                            <hr className="border-gray-300 mb-2" />
 
-                    <div onClick={handleLogout} className=" hidden md:flex items-center  hover:bg-black bg-[#2d3a15] transform duration-500 ease-in-out cursor-pointer px-5 py-2 hover:text-white font-semibold text-[16px] group">
-                        <button className="bg-transparent text-white group-hover:text-white font-semibold text-[16px] cursor-pointer">
-                            Logout
-                        </button>
-                    </div>
+                            {user?.isadmin ? (
 
+                                <li className="hidden px-3 py-2 md:flex">
+                                    <Link to="/add-product">
+                                        <div className="flex items-center gap-2 hover:bg-black bg-[#2d3a15] transform duration-500 ease-in-out cursor-pointer px-5 py-2 hover:text-white font-semibold text-[16px] group">
+                                            <button className="bg-transparent text-white group-hover:text-white font-semibold text-[16px] cursor-pointer">
+                                                Add Product
+                                            </button>
+                                        </div>
+                                    </Link>
+                                </li>
+                            ) : (
+
+                                <Link to="/order-details" className="w-full text-left text-base px-4 py-2 hover:text-[#729855] cursor-pointer">
+                                    Order History
+                                </Link>
+                            )}
+                        </div>
+                    )}
                 </div>
-            </nav>
+
+
+                <div onClick={handleLogout} className=" hidden md:flex items-center  hover:bg-black bg-[#2d3a15] transform duration-500 ease-in-out cursor-pointer px-5 py-2 hover:text-white font-semibold text-[16px] group">
+                    <button className="bg-transparent text-white group-hover:text-white font-semibold text-[16px] cursor-pointer">
+                        Logout
+                    </button>
+                </div>
+
+            </div>
+        </nav >
 
         </>
     );

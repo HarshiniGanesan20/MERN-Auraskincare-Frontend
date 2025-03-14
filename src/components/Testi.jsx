@@ -29,7 +29,7 @@ export default function Testi() {
         <div className="my-10 md:my-20 mx-10">
             <div className="text-center">
                 <p className="text-[#536e1c] text-sm uppercase font-medium">Customer Reviews</p>
-                <h2 className="text-3xl text-gray-900 mt-3 mb-5">Testimonials</h2>
+                <h2 className=" text-[22px] md:text-3xl  text-gray-900 mt-3 mb-5">Testimonials</h2>
                 <p className="text-gray-600 max-w-2xl mx-auto">
                     Aliquam purus sit amet luctus venenatis lectus. Arcu non odio euismod lacinia at quis risus sed.
                 </p>

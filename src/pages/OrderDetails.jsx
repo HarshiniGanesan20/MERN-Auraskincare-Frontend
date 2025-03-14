@@ -25,7 +25,7 @@ const OrderDetails = () => {
             try {
                 const userEmail = user.email;
                 const res = await fetch(`${import.meta.env.VITE_API_URL}/get-orders?email=${userEmail}`);
-                if (!res.ok) throw new Error("Failed to fetch order history");
+                if (!res.ok) throw new Error("No order history");
 
                 const data = await res.json();
                 console.log("Fetched orders:", data);
@@ -65,7 +65,7 @@ const OrderDetails = () => {
             <div className="bg-white shadow-lg p-10 py-10 md:py-20">
 
                 {loading && <p className="text-gray-500">Loading orders...</p>}
-                {error && <p className="text-red-500">{error}</p>}
+                {error && <p className="text-gray-500">{error}</p>}
                 {!loading && !error && orders.length === 0 && <p className="text-gray-600">No orders found.</p>}
 
                 {!loading && !error && orders.length > 0 && (

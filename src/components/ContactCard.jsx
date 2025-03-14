@@ -48,7 +48,7 @@ const ContactCard = () => {
            
 
 
-            <section className="text-gray-600 body-font relative my-10 ">
+            <section className="text-gray-600 body-font relative">
                 <div className="container px-5 py-14 mx-auto flex flex-col md:flex-row items-center justify-center">
 
                     {/* Left Side - Contact Details */}
@@ -56,7 +56,7 @@ const ContactCard = () => {
                         <p className="tracking-wide uppercase text-sm text-[#536e1c] font-medium">
                             Get in Touch
                         </p>
-                        <h2 className="text-[30px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-5 leading-tight">
+                        <h2 className="text-[22px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-5 leading-tight">
                             Have questions or need assistance?</h2>
                         <p className="text-gray-600 text-[16px] mb-5">
                             Ut tempor sem leo, a ultricies quam aliquam eget. Vivamus commodo scelerisque velit leo et vestibulum.

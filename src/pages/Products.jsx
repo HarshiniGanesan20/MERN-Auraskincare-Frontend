@@ -75,7 +75,7 @@ export default function ProductsList() {
                 <p className="tracking-wide uppercase text-sm text-[#536e1c] font-medium">
                     Aura Skin Care
                 </p>
-                <h2 className="text-[30px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-5 leading-tight">
+                <h2 className="text-[22px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-5 leading-tight">
                     Best Skin Care Products
                 </h2>
                 <p className="text-gray-600 text-[16px] mb-5">
@@ -193,7 +193,7 @@ export default function ProductsList() {
                 <div className="w-3/4 pl-4">
                     <div className="flex flex-col md:flex-row  justify-between items-start md:items-center mb-4">
                         
-                        <h2 className="text-2xl  mb-3 md:mb-0 md:mt-0">Products</h2>
+                        <h2 className=" text-[22px] md:text-3xl mb-3 md:mb-0 md:mt-0">Products</h2>
                         
                         <select className="p-2 border rounded" value={sortOption} onChange={(e) => setSortOption(e.target.value)}>
                             <option value="default">Sort by</option>

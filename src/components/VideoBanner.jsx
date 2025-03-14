@@ -28,7 +28,7 @@ export default function VideoBanner() {
                 data-aos-delay="300"
                 data-aos-duration="1200">
                 <p className="tracking-wide uppercase text-sm text-[#536e1c] mb-5 font-medium">Aura Skin Care</p>
-                <h1 className="text-black text-3xl md:text-5xl mb-5"> AuraBloom Beauty & Personal Care</h1>
+                <h1 className="text-black text-2xl md:text-5xl mb-5"> AuraBloom Beauty & Personal Care</h1>
                 <p className="text-gray-600 text-[16px] mb-5">
                     Ut tempor sem leo, a ultricies quam aliquam eget. Vivamus commodo scelerisque velit,
                     quis viverra velit bibendum vel. Phasellus id leo et vestibulum.quis viverra velit bibendum vel. Phasellus id leo et vestibulum.

@@ -46,7 +46,7 @@ export default function AboutCard() {
                 <p className="tracking-wide uppercase text-sm text-[#536e1c] font-medium">
                     PURE AND SIMPLE
                 </p>
-                <h2 className="text-[30px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-5 leading-tight">
+                <h2 className="text-[22px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-5 leading-tight">
                     Deeply Nourishing Hair Serum For Glowing & Healthy Hair
                 </h2>
                 <p className="text-gray-600 text-[16px] mb-5">

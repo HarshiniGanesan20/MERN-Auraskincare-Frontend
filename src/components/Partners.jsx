@@ -14,7 +14,7 @@ export default function Partners() {
                 <p className="tracking-wide uppercase text-sm text-[#536e1c] font-medium">
                     Aura Skin Care
                 </p>
-                <h2 className="text-[30px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-8 leading-tight">
+                <h2 className="text-[22px] md:text-[30px] xl:text-4xl text-gray-900 mt-3 mb-8 leading-tight">
                   Client & partners
                 </h2>
             </div>
