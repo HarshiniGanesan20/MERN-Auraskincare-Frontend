@@ -93,10 +93,10 @@ export default function Header() {
 
                     <ul className='flex  h-screen md:h-auto flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-6'>
                         <li className='md:hidden text-[#536e1c] text-base font-medium hover:text-[#729855]'> {user ? `Welcome,${user.username}` : "Welcome,Guest"}</li>
-                        <li><a href='/home' className='text-gray-900 text-base font-medium hover:text-[#729855]'>Home</a></li>
-                        <li><a href='/products' className='text-gray-900 text-base font-medium hover:text-[#729855]'>SkinCare</a></li>
-                        <li><a href='/about' className='text-gray-900 text-base font-medium hover:text-[#729855]'>About</a></li>
-                        <li><a href='/contact' className='text-gray-900 text-base font-medium hover:text-[#729855]'>Contact</a></li>
+                        <li><Link to='/home' className='text-gray-900 text-base font-medium hover:text-[#729855]'>Home</Link></li>
+                        <li><Link to='/products' className='text-gray-900 text-base font-medium hover:text-[#729855]'>SkinCare</Link></li>
+                        <li><Link to='/about' className='text-gray-900 text-base font-medium hover:text-[#729855]'>About</Link></li>
+                        <li><Link to='/contact' className='text-gray-900 text-base font-medium hover:text-[#729855]'>Contact</Link></li>
 
                         <li className="md:hidden hover:text-[#729855]">
                             <div
