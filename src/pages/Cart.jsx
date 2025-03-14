@@ -48,9 +48,9 @@ export default function Cart() {
     const formattedSubtotal = subtotalAmount.toLocaleString("en-IN");
 
 
-  
+
     const auth = getAuth();
-    
+
     const handleCheckout = async () => {
         try {
             const user = auth.currentUser; 
@@ -58,20 +58,20 @@ export default function Cart() {
                 alert("User not logged in!");
                 return;
             }
-    
+
             const userEmail = user.email; 
-    
+
             const userRes = await fetch(`${import.meta.env.VITE_API_URL}/user?email=${userEmail}`);
             if (!userRes.ok) throw new Error("Failed to fetch user details");
-    
+
             const userData = await userRes.json();
-    
-          
+
+
             if (!userData.username || !userData.email) {
                 throw new Error("User data incomplete");
             }
-    
-         
+
+
             const response = await fetch(`${import.meta.env.VITE_API_URL}/create-order`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
@@ -85,12 +85,12 @@ export default function Cart() {
                     }
                 })
             });
-    
+
             if (!response.ok) throw new Error("Failed to create order");
-    
+
             const order = await response.json();
             console.log("Order Created:", order);
-    
+
             const options = {
                 key: "rzp_test_nnaRhQCwZVr080",
                 amount: order.amount,
@@ -101,19 +101,19 @@ export default function Cart() {
                 handler: async function (response) {
                     try {
                         console.log("Payment Response:", response);
-    
+
                         const verifyRes = await fetch(`${import.meta.env.VITE_API_URL}/verify-payment`, {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify(response)
                         });
-    
+
                         if (!verifyRes.ok) throw new Error("Payment verification failed");
-    
+
                         const verifyData = await verifyRes.json();
                         if (verifyData.success) {
                             alert("Payment Successful!");
-    
+
                             await fetch(`${import.meta.env.VITE_API_URL}/store-order`, {
                                 method: "POST",
                                 headers: { "Content-Type": "application/json" },
@@ -129,7 +129,7 @@ export default function Cart() {
                                     paymentId: response.razorpay_payment_id
                                 })
                             });
-    
+
                             localStorage.removeItem("cart");
                             setCart([]);
                         } else {
@@ -147,7 +147,7 @@ export default function Cart() {
                 },
                 theme: { color: "#536e1c" },
             };
-    
+
             const rzp = new window.Razorpay(options);
             rzp.open();
         } catch (error) {
@@ -316,13 +316,6 @@ export default function Cart() {
         </>
     );
 }
-
-
-
-
-
-
-
 
 
 

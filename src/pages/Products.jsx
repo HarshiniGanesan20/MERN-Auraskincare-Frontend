@@ -153,7 +153,7 @@ export default function ProductsList() {
                                         className="flex flex-col lg:flex-row items-start  lg:items-center space-y-4 lg:space-y-0 lg:space-x-4"
                                     >
                                         <img src={product.img} alt={product.name}
-                                            className="w-24 lg:w-[80px] h-24 lg:h-auto object-cover"
+                                            className="w-18 md:w-24 lg:w-[80px] h-24 lg:h-auto object-cover"
                                         />
                                         <div className="text-start lg:text-left">
                                             <h4 className="text-sm lg:text-[16px] ">{product.name}</h4>
@@ -176,7 +176,7 @@ export default function ProductsList() {
                                         className="flex flex-col lg:flex-row items-start  lg:items-center space-y-4 lg:space-y-0 lg:space-x-4"
                                     >
                                         <img src={product.img} alt={product.name}
-                                            className="w-24 lg:w-[80px] h-24 lg:h-auto object-cover"
+                                            className="w-18 md:w-24 lg:w-[80px] h-24 lg:h-auto object-cover"
                                         />
                                         <div className="text-start lg:text-left">
                                             <h4 className="text-sm lg:text-[16px] ">{product.name}</h4>

@@ -67,6 +67,7 @@ export default function Header() {
     return (
         <>
 
+        <div className="sticky top-0 z-50 left-0">
             <div className="p-1 bg-[#F5F5F5]">
                 <marquee behavior="scroll" direction="left" scrollamount="5" className=" text-[#2f3e10] text-[14px] font-semibold">
                     Clearance Sale Event: Up to 50% Off Select Items! | Best special offers every week 40% Off! Free delivery time | Free Shipping on Orders over $140
@@ -189,7 +190,7 @@ export default function Header() {
 
             </div>
         </nav >
-
+        </div>
         </>
     );
 }
