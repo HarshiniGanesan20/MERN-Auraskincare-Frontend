@@ -28,7 +28,7 @@ export default function LatestProduct() {
             {/* Left Section */}
             <div className="md:w-1/2" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1200">
                 <p className="uppercase text-sm text-[#536e1c] font-medium py-3">Popular Products Of The Week</p>
-                <h2 className="text-[22px] md:text-3xl text-gray-900 mt-4 mb-6">Latest Aura Skin Care Collections</h2>
+                <h2 className="text-3xl text-gray-900 mt-4 mb-6">Latest Aura Skin Care Collections</h2>
                 
                 <p className="text-gray-600 text-[16px] mb-10 ">
                     Ut tempor sem leo, a ultricies quam aliquam eget. Vivamus commodo scelerisque velit,
