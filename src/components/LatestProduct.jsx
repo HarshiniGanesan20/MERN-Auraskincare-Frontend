@@ -26,7 +26,7 @@ export default function LatestProduct() {
     return (
         <div className="flex flex-col xl:flex-row my-10 md:my-20 mx-10 gap-6">
             {/* Left Section */}
-            <div className="md:w-1/2" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1200">
+            <div className="md:w-1/1" data-aos="fade-right" data-aos-delay="300" data-aos-duration="1200">
                 <p className="uppercase text-sm text-[#536e1c] font-medium py-3">Popular Products Of The Week</p>
                 <h2 className="text-3xl text-gray-900 mt-4 mb-6">Latest Aura Skin Care Collections</h2>
                 
