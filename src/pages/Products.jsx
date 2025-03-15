@@ -223,7 +223,7 @@ export default function ProductsList() {
                                             className="w-full h-auto object-cover"
                                         />
                                         <div className="mt-4">
-                                            <h3 className="text-[18px]">{product.name}</h3>
+                                            <h3 className="text-[14px] md:text-[18px]">{product.name}</h3>
                                             {product.discount && (
                                                 <span className="bg-[#53a080] text-white text-xs px-2 py-1 inline-block mt-1">
                                                     {product.discount} OFF
@@ -246,7 +246,7 @@ export default function ProductsList() {
                                             className="w-full h-auto object-cover"
                                         />
                                         <div className="mt-4">
-                                            <h3 className="text-[18px]">{product.name}</h3>
+                                            <h3 className="text-[14px] md:text-[18px]">{product.name}</h3>
                                             {product.discount && (
                                                 <span className="bg-[#53a080] text-white text-xs px-2 py-1 inline-block mt-1">
                                                     {product.discount} OFF

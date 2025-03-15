@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import bgBanner from "../assets/prodDetails.jpg";
@@ -7,15 +8,28 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 
 export default function Cart() {
     const [cart, setCart] = useState([]);
+    const [address, setAddress] = useState("");
 
     useEffect(() => {
-        const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
-        setCart(savedCart);
+        const updateCartFromStorage = () => {
+            const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
+            setCart(savedCart);
+        };
+
+        updateCartFromStorage();
+
+        window.addEventListener("storage", updateCartFromStorage);
+
+        return () => {
+            window.removeEventListener("storage", updateCartFromStorage);
+        };
     }, []);
 
     const updateCart = (updatedCart) => {
         setCart(updatedCart);
         localStorage.setItem("cart", JSON.stringify(updatedCart));
+
+        setCart(JSON.parse(localStorage.getItem("cart")) || []);
     };
 
     const increaseQuantity = (index) => {
@@ -52,14 +66,18 @@ export default function Cart() {
     const auth = getAuth();
 
     const handleCheckout = async () => {
+        if (!address.trim()) {
+            alert("Please enter your address before checkout.");
+            return;
+        }
         try {
-            const user = auth.currentUser; 
+            const user = auth.currentUser;
             if (!user) {
                 alert("User not logged in!");
                 return;
             }
 
-            const userEmail = user.email; 
+            const userEmail = user.email;
 
             const userRes = await fetch(`${import.meta.env.VITE_API_URL}/user?email=${userEmail}`);
             if (!userRes.ok) throw new Error("Failed to fetch user details");
@@ -79,9 +97,10 @@ export default function Cart() {
                     amount: subtotalAmount,
                     cart: cart,
                     customer: {
-                        name: userData.username,  
-                        email: userData.email,    
-                        contact: userData.contact || "9876543210"
+                        name: userData.username,
+                        email: userData.email,
+                        contact: userData.contact || "9876543210",
+                        address: address
                     }
                 })
             });
@@ -122,9 +141,10 @@ export default function Cart() {
                                     products: cart,
                                     totalAmount: subtotalAmount,
                                     customer: {
-                                        name: userData.username, 
+                                        name: userData.username,
                                         email: userData.email,
-                                        contact: userData.contact || "9876543210"
+                                        contact: userData.contact || "9876543210",
+                                        address: address
                                     },
                                     paymentId: response.razorpay_payment_id
                                 })
@@ -132,6 +152,7 @@ export default function Cart() {
 
                             localStorage.removeItem("cart");
                             setCart([]);
+                            setAddress("");
                         } else {
                             alert("Payment verification failed!");
                         }
@@ -178,7 +199,7 @@ export default function Cart() {
                         Your cart is empty:( <Link to="/products" className="text-[#536e1c] hover:text-[#8aa35c] hover:underline">Continue Shopping</Link>
                     </p>
                 ) : (
-                    <div className="bg-white shadow-lg p-10">
+                    <div className="bg-white shadow-lg p-5 md:p-10">
 
                         <div className="hidden md:block cart-table">
                             <table className="w-full text-left">
@@ -297,25 +318,42 @@ export default function Cart() {
                                             </svg>
                                         </button> </div>
                                 </div>
+
                             ))}
+
                         </div>
 
-
-                        <div className="mt-6 text-right">
-                            <p className="text-xl font-medium mb-4 subtotal">
+                        <div className="mt-10 flex flex-col items-end text-right">
+                            <p className="text-xl font-medium mb-4 subtotal w-[270px] md:w-[300px]">
                                 Subtotal: ₹{formattedSubtotal}
                             </p>
-                            <p className="mb-5 text-gray-600">Taxes and shipping calculated at checkout</p>
-                            <button onClick={handleCheckout} className="bg-[#2d3a15] cursor-pointer hover:bg-black py-3 px-10 text-white font-semibold checkout-btn">
+
+
+                            <p className="mb-4 w-[270px] md:w-[300px]  text-gray-600">Taxes and shipping calculated at checkout</p>
+
+                            <div className="mb-4 w-[270px] md:w-[300px]">
+                                <input
+                                    type="text"
+                                    value={address}
+                                    onChange={(e) => setAddress(e.target.value)}
+                                    placeholder="Enter your full address"
+                                    className=" p-3 w-full border border-gray-300  focus:outline-none focus:ring-2 focus:ring-[#536e1c]"
+                                />
+                            </div>
+                            <button onClick={handleCheckout} className="bg-[#2d3a15] mb-4 w-[270px] md:w-[300px] cursor-pointer hover:bg-black py-3 px-10 text-white font-semibold checkout-btn">
                                 Proceed to Checkout
                             </button>
                         </div>
+
                     </div>
                 )}
             </div>
         </>
     );
 }
+
+
+
 
 
 

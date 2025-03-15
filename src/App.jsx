@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { useState, useEffect } from "react";
 import Home from './pages/Home';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -16,9 +17,10 @@ import OrderDetails from './pages/OrderDetails';
 
 function Layout() {
   const location = useLocation();
-  
+
   // Hide Header and Footer for login and signup pages
   const hideHeaderFooter = location.pathname === "/" || location.pathname === "/signup";
+
 
   return (
     <>

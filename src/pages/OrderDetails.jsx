@@ -75,6 +75,7 @@ const OrderDetails = () => {
                                 <tr className="border-b border-gray-300">
                                     <th className="py-3 px-4 font-medium text-lg">Order ID</th>
                                     <th className="py-3 px-4 font-medium text-lg">Products</th>
+                                    <th className="py-3 px-4 font-medium text-lg">Address</th>
                                     <th className="py-3 px-4 font-medium text-lg text-center">Amount</th>
                                     <th className="py-3 px-4 font-medium text-lg text-center">Status</th>
                                     <th className="py-3 px-4 font-medium text-lg text-right">Date</th>
@@ -91,6 +92,8 @@ const OrderDetails = () => {
                                                 </div>
                                             ))}
                                         </td>
+                                        <td className="py-4 px-4 text-gray-700 w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">{order.fullAddress}</td>
+                                        
                                         <td className="py-4 px-4 text-center text-gray-700 font-medium w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">₹{order.totalAmount}</td>
                                         <td className="py-4 px-4 text-center w-[200px] whitespace-nowrap overflow-hidden text-ellipsis">
                                             <span

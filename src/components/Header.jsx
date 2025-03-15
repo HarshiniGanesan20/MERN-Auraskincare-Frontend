@@ -15,6 +15,7 @@ import { ChevronDown } from "lucide-react";
 
 
 export default function Header() {
+   
     const [isOpen, setIsOpen] = useState(false);
     const navigate = useNavigate();
     const dropdownRef = useRef(null);
@@ -22,6 +23,7 @@ export default function Header() {
     const [isProfileOpen, setIsProfileOpen] = useState(false);
     const [isMobileProfileOpen, setIsMobileProfileOpen] = useState(false);
 
+    
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
             if (currentUser) {
@@ -139,8 +141,9 @@ export default function Header() {
 
 
             <div className='flex items-center gap-3'>
-                <Link to='/cart' className='text-gray-900 text-[18px] hover:text-[#729855]'>
+                <Link to='/cart' className='text-gray-900 relative text-[18px] hover:text-[#729855]'>
                     <img src={cart} className="w-7 md:w-8"></img>
+                
                 </Link>
 
                 <div className="relative" ref={dropdownRef}>
